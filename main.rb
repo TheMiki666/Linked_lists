@@ -2,17 +2,22 @@ require_relative "lib/linked_lists"
 
 list = LikedLists::LinkedList.new
 
-puts list
-puts list.size
+def print_all_info(list)
+  puts list
+  puts "Size: #{list.size}"
+  puts "Head: " + list.head
+  puts "Tail: " + list.tail
+  puts "------"
+end
+
+print_all_info(list)
 list.append("Taurus")
-puts list
-puts list.size
+print_all_info(list)
 list.append("Gemini")
 list.append("Cancer")
-puts list
+print_all_info(list)
 list.prepend("Aries")
-puts list
-puts list.size
+print_all_info(list)
 list.append("Leo")
 list.append("Virgo")
 list.append("Libra")
@@ -21,5 +26,4 @@ list.append("Sagittarius")
 list.append("Capricorn")
 list.append("Acuarius")
 list.append("Pisces")
-puts list
-puts list.size
+print_all_info(list)

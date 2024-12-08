@@ -3,6 +3,7 @@ module LikedLists
   class LinkedList
 
     class Node
+      attr_reader :value
 
       def initialize(value = nil, next_node = nil)
         @value = value
@@ -31,6 +32,15 @@ module LikedLists
         end
       end
 
+      def tail
+        if @next_node.nil?
+          "( #{value} )"
+        else
+          @next_node.tail
+        end
+
+      end
+
       def to_s
         if @next_node.nil?
           "( #{@value} ) -> nil"
@@ -39,7 +49,7 @@ module LikedLists
         end
       end
   
-    end
+    end #Of Node class
 
     def initialize
       @head = nil
@@ -65,6 +75,22 @@ module LikedLists
         return 0
       else
         return 1 + @head.tail_length
+      end
+    end
+
+    def head
+      if @head.nil?
+        "nil"
+      else
+        "( #{@head.value} )"
+      end
+    end
+
+    def tail
+      if @head.nil?
+        "nil"
+      else
+        @head.tail
       end
     end
 
