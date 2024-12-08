@@ -38,7 +38,16 @@ module LikedLists
         else
           @next_node.tail
         end
+      end
 
+      def at(index)
+        if index==0
+          "( #{value} )"
+        elsif @next_node.nil?
+          "nil"
+        else
+          @next_node.at(index-1)
+        end
       end
 
       def to_s
@@ -91,6 +100,18 @@ module LikedLists
         "nil"
       else
         @head.tail
+      end
+    end
+
+    #It also works with negative indexes (like an array)
+    def at(index)
+      index = index.to_i
+      index = size + index if index < 0
+
+      if index <0 || @head.nil?
+        "nil"
+      else
+        @head.at(index)
       end
     end
 
