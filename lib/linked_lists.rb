@@ -19,6 +19,18 @@ module LikedLists
         end
       end
 
+      def append_directly(node = nil)
+        @next_node = node
+      end
+
+      def tail_length
+        if @next_node.nil?
+          return 0
+        else 
+          return 1 + @next_node.tail_length
+        end
+      end
+
       def to_s
         if @next_node.nil?
           "( #{@value} ) -> nil"
@@ -39,6 +51,20 @@ module LikedLists
         @head = new_node
       else
         @head.try_to_append(new_node)
+      end
+    end
+
+    def prepend(value)
+      new_node = Node.new(value)
+      new_node.append_directly(@head)
+      @head = new_node
+    end
+
+    def size
+      if @head.nil?
+        return 0
+      else
+        return 1 + @head.tail_length
       end
     end
 
