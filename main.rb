@@ -13,13 +13,18 @@ print_all_info(list)
 puts "At index 0: " + list.at(0)
 puts "At index 3: " + list.at(3)
 puts "------"
-
+puts list.pop
+puts list
+puts "------"
 list.append("Taurus")
 print_all_info(list)
 puts "At index 0: " + list.at(0)
 puts "At index 3: " + list.at(3)
 puts "------"
-
+puts list.pop
+puts list
+puts "------"
+list.append("Taurus")
 list.append("Gemini")
 list.append("Cancer")
 print_all_info(list)
@@ -51,3 +56,7 @@ puts "At index 20: " + list.at(20)
 puts "At index -1: " + list.at(-1)
 puts "At index -4: " + list.at(-4)
 puts "At index -20: " + list.at(-20)
+puts "------"
+puts list.pop
+puts list.pop
+print_all_info(list)

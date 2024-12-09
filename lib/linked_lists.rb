@@ -3,7 +3,7 @@ module LikedLists
   class LinkedList
 
     class Node
-      attr_reader :value
+      attr_reader :value, :next_node
 
       def initialize(value = nil, next_node = nil)
         @value = value
@@ -47,6 +47,17 @@ module LikedLists
           "nil"
         else
           @next_node.at(index-1)
+        end
+      end
+
+      # removes the next_node if it hasn't got another next_node
+      def pop
+        if @next_node.next_node.nil?
+          response = next_node.value
+          @next_node = nil
+          response
+        else
+          @next_node.pop
         end
       end
 
@@ -112,6 +123,18 @@ module LikedLists
         "nil"
       else
         @head.at(index)
+      end
+    end
+
+    def pop
+      if @head.nil?
+        return nil
+      elsif @head.next_node.nil?
+        response = @head.value
+        @head = nil 
+        return response
+      else
+        @head.pop
       end
     end
 
