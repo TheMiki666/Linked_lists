@@ -3,7 +3,8 @@ module LikedLists
   class LinkedList
 
     class Node
-      attr_reader :value, :next_node
+      attr_reader :value
+      attr_accessor :next_node
 
       def initialize(value = nil, next_node = nil)
         @value = value
@@ -79,6 +80,18 @@ module LikedLists
         else
           @next_node.find(value, index+1)
         end
+      end
+
+      def insert_at(new_node, index)
+        if @next_node.nil?
+          @next_node = new_node
+        elsif index == 0 
+          new_node.next_node=@next_node
+          @next_node = new_node 
+        else 
+          @next_node.insert_at(new_node, index-1)
+        end
+
       end
 
       def to_s
@@ -172,6 +185,23 @@ module LikedLists
       else
         @head.find(value, 0)
       end
+    end
+
+    # If the index < 0 and larger than the list size, we insert the new element at the start
+    def insert_at(value, index)
+      index = index.to_i
+      index = size + index if index < 0
+      index = 0 if index < 0 
+      new_node = Node.new (value)
+      if index == 0 && @head.nil?
+        @head = new_node
+      elsif index == 0
+        new_node.next_node = @head
+        @head = new_node
+      else
+        @head.insert_at(new_node, index-1)
+      end
+
     end
 
     def to_s

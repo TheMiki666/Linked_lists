@@ -29,9 +29,13 @@ puts list.pop
 puts list
 puts "Contains Taurus: #{list.contains?("Taurus")}"
 puts "------"
-list.append("Taurus")
-list.append("Gemini")
-list.append("Cancer")
+list.insert_at("Cancer", -20)
+puts list
+list.insert_at("Taurus", 0)
+puts list
+list.insert_at("Gemini", 1)
+#puts list
+#list.insert_at("Cow", 0)
 print_all_info(list)
 puts "At index -1: " + list.at(-1).to_s
 puts "At index -4: " + list.at(-4).to_s
@@ -49,11 +53,15 @@ puts "------"
 list.append("Leo")
 list.append("Virgo")
 list.append("Libra")
-list.append("Scorpio")
-list.append("Sagittarius")
 list.append("Capricorn")
 list.append("Acuarius")
-list.append("Pisces")
+puts list
+list.insert_at("Pisces", 50)
+puts list
+list.insert_at("Sagittarius",7)
+puts list
+list.insert_at("Scorpio", 7)
+
 print_all_info(list)
 puts "At index 0: " + list.at(0).to_s
 puts "At index 3: " + list.at(3).to_s
