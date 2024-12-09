@@ -91,8 +91,26 @@ module LikedLists
         else 
           @next_node.insert_at(new_node, index-1)
         end
-
       end
+
+      #If index==0, tries to delete next node
+      def delete_next_node(index)
+        if index == 0
+          if @next_node.next_node.nil?
+            @next_node = nil  # And we'll wait for the garbage collector
+          else 
+            @next_node = @next_node.next_node
+          end
+        else
+          if @next_node.next_node.nil?
+            #The index is larger than the size
+            return
+          else
+            @next_node.delete_next_node(index-1)
+          end
+        end
+      end
+
 
       def to_s
         if @next_node.nil?
@@ -199,9 +217,34 @@ module LikedLists
         new_node.next_node = @head
         @head = new_node
       else
-        @head.insert_at(new_node, index-1)
+        if @head.nil?
+          @head=new_node
+        else
+          @head.insert_at(new_node, index-1)
+        end
       end
+    end
 
+    # In this case, f the index < 0 and larger than the list size, does nothing
+    def delete_at(index)
+      index = index.to_i
+      index = size + index if index < 0
+      return if index < 0
+      return if index == 0 && @head.nil?
+      if index == 0
+        if @head.next_node.nil?
+          @head = nil
+          # We hope that Ruby has a garbage collector!
+        else 
+          @head=@head.next_node
+        end
+      else
+        if @head.next_node.nil?
+          return #The next node doesn't exists
+        else
+          @head.delete_next_node(index-1)
+        end
+      end
     end
 
     def to_s

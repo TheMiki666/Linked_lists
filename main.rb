@@ -19,6 +19,9 @@ puts list.pop
 puts list
 puts "Contains Aries: #{list.contains?("Aries")}"
 puts "------"
+list.delete_at(0)
+puts list
+puts "------"
 list.append("Taurus")
 print_all_info(list)
 puts "At index 0: " + list.at(0).to_s
@@ -29,13 +32,21 @@ puts list.pop
 puts list
 puts "Contains Taurus: #{list.contains?("Taurus")}"
 puts "------"
+list.insert_at("Leo", 200)
+puts list
+list.delete_at(0)
+puts list
+list.insert_at("Leo", 0)
+puts list
 list.insert_at("Cancer", -20)
 puts list
 list.insert_at("Taurus", 0)
 puts list
 list.insert_at("Gemini", 1)
-#puts list
-#list.insert_at("Cow", 0)
+puts list
+list.insert_at("Cow", 0)
+puts list
+list.delete_at(0)
 print_all_info(list)
 puts "At index -1: " + list.at(-1).to_s
 puts "At index -4: " + list.at(-4).to_s
@@ -50,7 +61,6 @@ puts "At index -4: " + list.at(-4).to_s
 puts "Aries at: #{list.find("Aries")}"
 puts "------"
 
-list.append("Leo")
 list.append("Virgo")
 list.append("Libra")
 list.append("Capricorn")
@@ -83,3 +93,27 @@ puts list.pop
 puts list.pop
 print_all_info(list)
 puts "Contains Pisces: #{list.contains?("Pisces")}"
+list.insert_at("Dragon", -3)
+puts list
+list.insert_at("Lizard", -1)
+puts list
+list.delete_at(7)
+puts list
+list.delete_at(9)
+puts list
+list.delete_at(0)
+puts list
+list.delete_at(-1)
+puts list
+list.delete_at(-3)
+puts list
+list.delete_at(7)
+puts list
+list.delete_at(6)
+puts list
+list.delete_at(20)
+puts list
+list.delete_at(-20)
+puts list
+list.delete_at(1)
+puts list
