@@ -34,7 +34,7 @@ module LikedLists
 
       def tail
         if @next_node.nil?
-          "( #{value} )"
+          value
         else
           @next_node.tail
         end
@@ -42,9 +42,9 @@ module LikedLists
 
       def at(index)
         if index==0
-          "( #{value} )"
+          value
         elsif @next_node.nil?
-          "nil"
+          nil
         else
           @next_node.at(index-1)
         end
@@ -58,6 +58,26 @@ module LikedLists
           response
         else
           @next_node.pop
+        end
+      end
+
+      def contains?(value)
+        if @value==value
+          true
+        elsif @next_node.nil?
+          false
+        else
+          @next_node.contains?(value)
+        end
+      end
+
+      def find(value, index)
+        if @value==value
+          index
+        elsif @next_node.nil?
+          nil
+        else
+          @next_node.find(value, index+1)
         end
       end
 
@@ -100,15 +120,15 @@ module LikedLists
 
     def head
       if @head.nil?
-        "nil"
+        nil
       else
-        "( #{@head.value} )"
+        @head.value
       end
     end
 
     def tail
       if @head.nil?
-        "nil"
+        nil
       else
         @head.tail
       end
@@ -120,7 +140,7 @@ module LikedLists
       index = size + index if index < 0
 
       if index <0 || @head.nil?
-        "nil"
+        nil
       else
         @head.at(index)
       end
@@ -135,6 +155,22 @@ module LikedLists
         return response
       else
         @head.pop
+      end
+    end
+
+    def contains?(value)
+      if @head.nil?
+        false
+      else
+        @head.contains?(value)
+      end
+    end
+
+    def find(value)
+      if @head.nil?
+        nil
+      else
+        @head.find(value, 0)
       end
     end
 

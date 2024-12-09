@@ -5,39 +5,45 @@ list = LikedLists::LinkedList.new
 def print_all_info(list)
   puts list
   puts "Size: #{list.size}"
-  puts "Head: " + list.head
-  puts "Tail: " + list.tail
+  puts "Head: " + list.head.to_s
+  puts "Tail: " + list.tail.to_s
 end
 
+
 print_all_info(list)
-puts "At index 0: " + list.at(0)
-puts "At index 3: " + list.at(3)
+puts "At index 0: " + list.at(0).to_s
+puts "At index 3: " + list.at(3).to_s
+puts "Aries at: #{list.find("Aries")}"
 puts "------"
 puts list.pop
 puts list
+puts "Contains Aries: #{list.contains?("Aries")}"
 puts "------"
 list.append("Taurus")
 print_all_info(list)
-puts "At index 0: " + list.at(0)
-puts "At index 3: " + list.at(3)
+puts "At index 0: " + list.at(0).to_s
+puts "At index 3: " + list.at(3).to_s
+puts "Contains Taurus: #{list.contains?("Taurus")}"
 puts "------"
 puts list.pop
 puts list
+puts "Contains Taurus: #{list.contains?("Taurus")}"
 puts "------"
 list.append("Taurus")
 list.append("Gemini")
 list.append("Cancer")
 print_all_info(list)
-puts "At index -1: " + list.at(-1)
-puts "At index -4: " + list.at(-4)
+puts "At index -1: " + list.at(-1).to_s
+puts "At index -4: " + list.at(-4).to_s
 puts "------"
 
 list.prepend("Aries")
 print_all_info(list)
-puts "At index 0: " + list.at(0)
-puts "At index 3: " + list.at(3)
-puts "At index -1: " + list.at(-1)
-puts "At index -4: " + list.at(-4)
+puts "At index 0: " + list.at(0).to_s
+puts "At index 3: " + list.at(3).to_s
+puts "At index -1: " + list.at(-1).to_s
+puts "At index -4: " + list.at(-4).to_s
+puts "Aries at: #{list.find("Aries")}"
 puts "------"
 
 list.append("Leo")
@@ -49,14 +55,23 @@ list.append("Capricorn")
 list.append("Acuarius")
 list.append("Pisces")
 print_all_info(list)
-puts "At index 0: " + list.at(0)
-puts "At index 3: " + list.at(3)
-puts "At index 11: " + list.at(11)
-puts "At index 20: " + list.at(20)
-puts "At index -1: " + list.at(-1)
-puts "At index -4: " + list.at(-4)
-puts "At index -20: " + list.at(-20)
+puts "At index 0: " + list.at(0).to_s
+puts "At index 3: " + list.at(3).to_s
+puts "At index 11: " + list.at(11).to_s
+puts "At index 20: " + list.at(20).to_s
+puts "At index -1: " + list.at(-1).to_s
+puts "At index -4: " + list.at(-4).to_s
+puts "At index -20: " + list.at(-20).to_s
+puts "Contains Taurus: #{list.contains?("Taurus")}"
+puts "Contains Aries: #{list.contains?("Aries")}"
+puts "Contains Pisces: #{list.contains?("Pisces")}"
+puts "Contains Goat: #{list.contains?("Goat")}"
+puts "Aries at: #{list.find("Aries")}"
+puts "Libra at: #{list.find("Libra")}"
+puts "Pisces at: #{list.find("Pisces")}"
+puts "Cow at: #{list.find("Cow")}"
 puts "------"
 puts list.pop
 puts list.pop
 print_all_info(list)
+puts "Contains Pisces: #{list.contains?("Pisces")}"
